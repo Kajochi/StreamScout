@@ -1,16 +1,25 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
+import React from "react"
 import viteLogo from '.../vite.svg'
 import './App.css'
 
+
 function App() {
   const [count, setCount] = useState(0)
+  const [movie, setMovie] = useState('')
 
+  const handleInputChange = (event) => {
+    setMovie(event.target.value);
+
+  function handleSubmit() {
+
+  }
   return (
     <>
       <div>
         <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
+          
         </a>
         <a href="https://react.dev" target="_blank">
           <img src={reactLogo} className="logo react" alt="React logo" />
@@ -28,8 +37,18 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
+      <div>
+        <p>
+          Wich movie do you want to search?
+        
+        </p>
+        <form onSubmit={handleSubmit}>
+        <input type='text' id='textfeld' value={movie} onChange={handleInputChange}/>
+        <button type='submit'>search</button>
+        </form>
+      </div>
     </>
-  )
+      );
 }
 
 export default App
